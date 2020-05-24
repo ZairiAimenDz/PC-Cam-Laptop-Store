@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" Visual="Material"
+             x:Class="PCcamAdmin.Views.Home">
+    <AbsoluteLayout>
+        <ListView AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="&#xf067;" CornerRadius="20" FontFamily="{x:StaticResource Solid}" AbsoluteLayout.LayoutFlags="PositionProportional" Margin="0,0,10,5" AbsoluteLayout.LayoutBounds="0.99,0.99" Clicked="Button_Clicked"/>
+    </AbsoluteLayout>
+</ContentPage>

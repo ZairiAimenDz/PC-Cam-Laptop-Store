@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                  mc:Ignorable="d" Visual="Material"
+             x:Class="PCcamAdmin.Popup.Step4">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Right"
+            PositionOut="Left"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <Frame Visual="Material" VerticalOptions="Center" Margin="10">
+        <StackLayout >
+            <Label Text="Brand And Name :"/>
+            <Entry Placeholder="Processor" x:Name="Brand"/>
+            <Stepper x:Name="RAM" Value="0" Minimum="0" Maximum="256" Increment="1" />
+            <Entry Placeholder="RAM" BindingContext="{x:Reference RAM}" Keyboard="Numeric" Text="{Binding Value,Mode=TwoWay}"/>
+            <Entry Placeholder="Storage" x:Name="Storage"/>
+            <Button Text="Next" Clicked="Button_Clicked"/>
+            <Button Text="Back" Clicked="BackButton_Clicked"/>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>
