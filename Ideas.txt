@@ -1,0 +1,3 @@
+- Items That Can Be Added :
+	- Ability To Save Items Offline in Both User And Admin
+	- Possibility To Create A Desktop App

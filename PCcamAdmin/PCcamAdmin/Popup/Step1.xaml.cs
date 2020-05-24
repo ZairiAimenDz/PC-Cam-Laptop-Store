@@ -16,7 +16,9 @@ namespace PCcamAdmin.Popup
     public partial class Step1 : PopupPage
     {
         private Laptop laptop;
-        public Step1(bool back = false)
+        private readonly bool back;
+
+        public Step1(Laptop lp=null,bool back = false)
         {
             InitializeComponent();
             if (back)
@@ -25,13 +27,55 @@ namespace PCcamAdmin.Popup
                     PositionOut=Rg.Plugins.Popup.Enums.MoveAnimationOptions.Right
                 };
             }
-            laptop = new Laptop();
+            if (lp == null)
+            {
+                laptop = new Laptop();
+            }
+            else
+            {
+                laptop = lp;
+                if (back)
+                {
+                    Brand.Text = laptop.Brand;
+                    Name.Text = laptop.Name;
+                }
+            }
+
+            this.back = back;
         }
+
+        /*# When Lp Isn't Null Fill out the element
+         */
+
 
         private async void NextButton_Clicked(object sender, EventArgs e)
         {
-            await PopupNavigation.Instance.RemovePageAsync(this);
-            await PopupNavigation.Instance.PushAsync(new Step2());
+            if (string.IsNullOrEmpty(Name.Text) || string.IsNullOrEmpty(Brand.Text))
+            {
+                if (string.IsNullOrEmpty(Brand.Text))
+                {
+                    Brand.BackgroundColor = Color.Red;
+                }
+                else
+                {
+                    Brand.BackgroundColor = Color.Default;
+                }
+                if (string.IsNullOrEmpty(Name.Text))
+                {
+                    Name.BackgroundColor = Color.Red;
+                }
+                else
+                {
+                    Name.BackgroundColor = Color.Default;
+                }
+            }
+            else
+            {
+                laptop.Brand = Brand.Text;
+                laptop.Name = Name.Text;
+                await PopupNavigation.Instance.RemovePageAsync(this);
+                await PopupNavigation.Instance.PushAsync(new Step2(laptop,back));
+            }
         }
 
         private async void ExitButton_Clicked(object sender, EventArgs e)

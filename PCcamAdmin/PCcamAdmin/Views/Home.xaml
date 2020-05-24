@@ -6,7 +6,7 @@
              mc:Ignorable="d" Visual="Material"
              x:Class="PCcamAdmin.Views.Home">
     <AbsoluteLayout>
-        <ListView AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+        <ListView x:Name="LaptopList" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

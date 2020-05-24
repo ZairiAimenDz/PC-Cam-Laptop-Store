@@ -9,7 +9,7 @@
         <ResourceDictionary>
             <OnPlatform x:TypeArguments="x:String" 
                 x:Key="Brands">
-                <On Platform="Android" Value="BrandRegular.otf#Regular" />
+                <On Platform="Android" Value="BrandsRegular.otf#Regular" />
             </OnPlatform>
 
             <OnPlatform x:TypeArguments="x:String" 

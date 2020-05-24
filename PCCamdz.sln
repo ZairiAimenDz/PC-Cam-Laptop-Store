@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCCamdz", "PCCamdz\PCCamdz\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCcamAdmin.Android", "PCcamAdmin\PCcamAdmin.Android\PCcamAdmin.Android.csproj", "{B38C8445-AE98-4E2B-B84F-7FFC297B0F59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCcamAdmin", "PCcamAdmin\PCcamAdmin\PCcamAdmin.csproj", "{E85B1617-1AB2-4EE0-95A5-CA73DF199C63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCcamAdmin", "PCcamAdmin\PCcamAdmin\PCcamAdmin.csproj", "{E85B1617-1AB2-4EE0-95A5-CA73DF199C63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{293C1D48-187C-4B67-A9ED-92231B596709}"
+	ProjectSection(SolutionItems) = preProject
+		Ideas.txt = Ideas.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-                  mc:Ignorable="d" Visual="Material"
+                  mc:Ignorable="d" Visual="Material" CloseWhenBackgroundIsClicked="False"
              x:Class="PCcamAdmin.Popup.Step2">
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation 
@@ -17,26 +17,28 @@
             EasingOut="SinIn"
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
-    <Frame Visual="Material" VerticalOptions="Center" Margin="10">
-        <StackLayout >
-            <Label Text="Processor Details :"/>
-            <Entry Placeholder="Processor Name" x:Name="Brand"/>
-            <StackLayout Orientation="Horizontal">
-                <Entry Placeholder="Cores" BindingContext="{x:Reference Cores}" Keyboard="Numeric" Text="{Binding Value,Mode=TwoWay}" HorizontalOptions="FillAndExpand"/>
-                <Stepper x:Name="Cores" Value="0" Minimum="0" Maximum="256" Increment="1" />
+    <ScrollView>
+        <Frame Visual="Material" VerticalOptions="Center" Margin="10" HasShadow="True">
+            <StackLayout >
+                <Label Text="Processor Details :"/>
+                <Entry Placeholder="Processor Name" x:Name="ProcessorName"/>
+                <StackLayout Orientation="Horizontal">
+                    <Entry TextChanged="Entry_TextChanged" Placeholder="Cores" BindingContext="{x:Reference Cores}" Keyboard="Numeric" Text="{Binding Value,Mode=TwoWay}" HorizontalOptions="FillAndExpand"/>
+                    <Stepper x:Name="Cores" Value="2" Minimum="2" Maximum="256" Increment="2" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Entry TextChanged="Entry_TextChanged" Placeholder="Threads" BindingContext="{x:Reference Threads}" Keyboard="Numeric" Text="{Binding Value,Mode=TwoWay}" HorizontalOptions="FillAndExpand"/>
+                    <Stepper x:Name="Threads" Value="2" Minimum="2" Maximum="256" Increment="2" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Entry TextChanged="Entry_TextChanged" Placeholder="ClockSpeed" BindingContext="{x:Reference ClockSpeed}" Keyboard="Numeric" Text="{Binding Value,Mode=TwoWay}" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Ghz" VerticalOptions="Center" TextColor="Black"/>
+                    <Stepper x:Name="ClockSpeed" Value="0.1"  Minimum="0.1" Maximum="7" Increment="0.1"/>
+                </StackLayout>
+                <Entry Placeholder="Cache" x:Name="Cache"/>
+                <Button Text="Next" Clicked="NextButton_Clicked"/>
+                <Button Text="Back" Clicked="BackButton_Clicked"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Entry Placeholder="Threads" BindingContext="{x:Reference Threads}" Keyboard="Numeric" Text="{Binding Value,Mode=TwoWay}" HorizontalOptions="FillAndExpand"/>
-                <Stepper x:Name="Threads" Value="0" Minimum="0" Maximum="256" Increment="1" />
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Entry Placeholder="ClockSpeed" BindingContext="{x:Reference ClockSpeed}" Keyboard="Numeric" Text="{Binding Value,Mode=TwoWay}" HorizontalOptions="FillAndExpand"/>
-                <Label Text="Ghz" VerticalOptions="Center" TextColor="Black"/>
-                <Stepper x:Name="ClockSpeed" Value="0" Minimum="1" Maximum="7" Increment="0.5" />
-            </StackLayout>
-            <Entry Placeholder="Cache" x:Name="Cache"/>
-            <Button Text="Next" Clicked="NextButton_Clicked"/>
-            <Button Text="Back" Clicked="BackButton_Clicked"/>
-        </StackLayout>
-    </Frame>
+        </Frame>
+    </ScrollView>
 </pages:PopupPage>

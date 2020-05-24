@@ -20,7 +20,14 @@
     <Frame Visual="Material" VerticalOptions="Center" Margin="10">
         <StackLayout >
             <Label Text="Brand And Name :"/>
-            <Entry Placeholder="Processor" x:Name="Brand"/>
+            <Entry Placeholder="Graphic Card" x:Name="Graphics"/>
+            <Picker x:Name="OS" FontFamily="{x:StaticResource Key=Brands}" Title="Operating System">
+                <Picker.Items>
+                    <x:String>Apple</x:String>
+                    <x:String>Windows</x:String>
+                    <x:String>Linux</x:String>
+                </Picker.Items>
+            </Picker>
             <Stepper x:Name="RAM" Value="0" Minimum="0" Maximum="256" Increment="1" />
             <Entry Placeholder="RAM" BindingContext="{x:Reference RAM}" Keyboard="Numeric" Text="{Binding Value,Mode=TwoWay}"/>
             <Entry Placeholder="Storage" x:Name="Storage"/>
