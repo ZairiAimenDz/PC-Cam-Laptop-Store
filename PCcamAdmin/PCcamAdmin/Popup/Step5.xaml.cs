@@ -26,13 +26,6 @@ namespace PCcamAdmin.Popup
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await PopupNavigation.Instance.RemovePageAsync(this);
-            await Navigation.PushAsync(new Views.Details(lp));
-            
-        }
-
-        private async void Button_Clicked_1(object sender, EventArgs e)
-        {
             await PopupNavigation.Instance.PopAllAsync();
         }
     }

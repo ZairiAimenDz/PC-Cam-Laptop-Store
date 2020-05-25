@@ -13,7 +13,7 @@
     </ContentPage.Resources>
 
     <StackLayout>
-        <ListView CachingStrategy="RecycleElementAndDataTemplate" Margin="0" x:Name="LaptopsList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" SeparatorVisibility="None" HasUnevenRows="True" SelectionMode="None" Refreshing="LaptopsList_Refreshing" IsPullToRefreshEnabled="True" >
+        <ListView ItemTapped="LaptopsList_ItemTapped" CachingStrategy="RecycleElementAndDataTemplate" Margin="0" x:Name="LaptopsList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" SeparatorVisibility="None" HasUnevenRows="True" SelectionMode="None" Refreshing="LaptopsList_Refreshing" IsPullToRefreshEnabled="True" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

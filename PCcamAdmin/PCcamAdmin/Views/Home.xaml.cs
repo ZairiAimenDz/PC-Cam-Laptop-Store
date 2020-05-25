@@ -48,6 +48,11 @@ namespace PCcamAdmin.Views
             }
             LaptopsList.IsRefreshing = false;
         }
+
+        private void LaptopsList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var item = e.Item as Laptop;
+        }
     }
 
 
