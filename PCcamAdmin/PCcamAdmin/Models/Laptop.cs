@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.Linq;
 using System.Text;
 
 namespace PCcamAdmin.Models
 {
     public class Laptop
     {
+        public Laptop()
+        {
+            date = new DateTime();
+        }
+
         public string Brand { get; set; }
         public string Name { get; set; }
         public string price { get; set; }
@@ -14,9 +20,11 @@ namespace PCcamAdmin.Models
         public string graphics { get; set; }
         public string Os { get; set; }
         public int RAM { get; set; }
+        public DateTime date { get; set; }
         public string storage { get; set; }
         public string screen { get; set; }
-        public int mainimg { get; set; }
+        public string mainimg { get; set; }
+
         public List<Imgs> imgs { get; set; }
     }
     /*#

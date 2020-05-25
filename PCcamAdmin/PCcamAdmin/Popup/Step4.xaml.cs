@@ -1,7 +1,9 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
 using Firebase.Storage;
+using PCcamAdmin.Data;
 using PCcamAdmin.Models;
+using PCcamAdmin.Views;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Rg.Plugins.Popup.Pages;
@@ -24,11 +26,13 @@ namespace PCcamAdmin.Popup
         private readonly Laptop lp;
         private readonly bool back;
         private List<MediaFile> file;
+        private FirebaseHelper helper = new FirebaseHelper();
 
         public Step4(Laptop lp,bool back = false)
         {
             InitializeComponent();
             this.lp = lp;
+            file = new List<MediaFile>();
             this.back = back;
         }
 
@@ -36,25 +40,34 @@ namespace PCcamAdmin.Popup
         {
             activity.IsRunning = true;
             activity.IsVisible = true;
+
             lp.imgs = new List<Imgs>();
             string childof = "lp" + lp.Brand.Trim() + lp.Name.Trim();
-            foreach (var media in file) {
+            foreach (var media in file)
+            {
                 string filename = "image" + file.IndexOf(media) + ".jpeg";
                 var stroageImage = await new FirebaseStorage("pccamdz.appspot.com")
                     .Child(childof)
                     .Child(filename)
                     .PutAsync(media.GetStream());
                 string imgurl = stroageImage;
-                lp.imgs.Add(new Imgs() {folder=childof,imgname=filename,imgurl=imgurl});
+                lp.imgs.Add(new Imgs() { folder = childof, imgname = filename, imgurl = imgurl });
             }
+            lp.date = DateTime.Now;
+            lp.mainimg = lp.imgs.FirstOrDefault().imgurl;
+            await helper.AddLaptop(lp);
 
-            await new FirebaseClient("https://pccamdz.firebaseio.com/")
-              .Child("Laptops")
-              .PostAsync(lp);
 
+                await PopupNavigation.Instance.RemovePageAsync(this);
+                await PopupNavigation.Instance.PushAsync(new Step5(lp));
+            /*}
+            catch
+            {
+                await DisplayAlert("There Has Been An Error","Check Your Internet Connection","OK");
+            }*/
 
-            await PopupNavigation.Instance.RemovePageAsync(this);
-            await PopupNavigation.Instance.PushAsync(new Step5(lp));
+            activity.IsRunning = false;
+            activity.IsVisible = false;
         }
 
         private async void Button_Clicked_1(object sender, EventArgs e)
@@ -82,11 +95,12 @@ namespace PCcamAdmin.Popup
                 };
                     Photos.Children.Add(imgChoosed);
                 }
-                file.AddRange(files);
+                foreach (var media in files)
+                    file.Add(media);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                await DisplayAlert("There Was An Error", "Could You Please Try Again" + ex, "ok");
             }
         }
     }

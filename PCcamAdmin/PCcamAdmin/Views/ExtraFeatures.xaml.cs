@@ -1,5 +1,4 @@
-﻿using PCcamAdmin.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,13 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace PCcamAdmin.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Details : ContentPage
+    public partial class ExtraFeatures : ContentPage
     {
-        public Details(Laptop laptop)
+        public ExtraFeatures()
         {
             InitializeComponent();
-            BindingContext = laptop;
-            
         }
     }
 }

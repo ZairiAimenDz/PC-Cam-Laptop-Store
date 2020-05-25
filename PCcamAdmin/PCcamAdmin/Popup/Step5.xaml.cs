@@ -4,6 +4,7 @@ using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,9 @@ namespace PCcamAdmin.Popup
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Details(lp));
+            await PopupNavigation.Instance.RemovePageAsync(this);
+            await Navigation.PushAsync(new Views.Details(lp));
+            
         }
 
         private async void Button_Clicked_1(object sender, EventArgs e)

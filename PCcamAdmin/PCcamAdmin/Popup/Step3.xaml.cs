@@ -61,6 +61,7 @@ namespace PCcamAdmin.Popup
         private async void Button_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Graphics.Text) || RAM.Value <= 0 || string.IsNullOrEmpty(Storage.Text) || OS.SelectedIndex == -1){
+                
                 if (string.IsNullOrEmpty(Graphics.Text)) {Graphics.BackgroundColor = Color.Red;}
                 else { Graphics.BackgroundColor = Color.Red; }
              
