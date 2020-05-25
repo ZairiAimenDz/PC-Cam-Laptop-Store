@@ -38,6 +38,7 @@ namespace PCcamAdmin.Popup
                 {
                     Brand.Text = laptop.Brand;
                     Name.Text = laptop.Name;
+                    Price.Text = lp.price;
                 }
             }
 
@@ -73,6 +74,7 @@ namespace PCcamAdmin.Popup
             {
                 laptop.Brand = Brand.Text;
                 laptop.Name = Name.Text;
+                laptop.price = Price.Text;
                 await PopupNavigation.Instance.RemovePageAsync(this);
                 await PopupNavigation.Instance.PushAsync(new Step2(laptop,back));
             }

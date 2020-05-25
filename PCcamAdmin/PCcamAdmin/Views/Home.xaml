@@ -15,6 +15,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="&#xf067;" CornerRadius="20" FontFamily="{x:StaticResource Solid}" AbsoluteLayout.LayoutFlags="PositionProportional" Margin="0,0,10,5" AbsoluteLayout.LayoutBounds="0.99,0.99" Clicked="Button_Clicked"/>
+        <Button Text="&#xf067;" FontSize="32" CornerRadius="40" FontFamily="{x:StaticResource Solid}" AbsoluteLayout.LayoutFlags="PositionProportional" Margin="0,0,10,5" AbsoluteLayout.LayoutBounds="0.99,0.99" Clicked="Button_Clicked"/>
     </AbsoluteLayout>
 </ContentPage>

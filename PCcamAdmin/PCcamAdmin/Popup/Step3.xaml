@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-                  mc:Ignorable="d" Visual="Material"
+                  mc:Ignorable="d" Visual="Material" CloseWhenBackgroundIsClicked="False"
              x:Class="PCcamAdmin.Popup.Step3">
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation 
@@ -17,22 +17,32 @@
             EasingOut="SinIn"
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
-    <Frame Visual="Material" VerticalOptions="Center" Margin="10">
-        <StackLayout >
-            <Label Text="Brand And Name :"/>
-            <Entry Placeholder="Graphic Card" x:Name="Graphics"/>
-            <Picker x:Name="OS" FontFamily="{x:StaticResource Key=Brands}" Title="Operating System">
-                <Picker.Items>
-                    <x:String>Apple</x:String>
-                    <x:String>Windows</x:String>
-                    <x:String>Linux</x:String>
-                </Picker.Items>
-            </Picker>
-            <Stepper x:Name="RAM" Value="0" Minimum="0" Maximum="256" Increment="1" />
-            <Entry Placeholder="RAM" BindingContext="{x:Reference RAM}" Keyboard="Numeric" Text="{Binding Value,Mode=TwoWay}"/>
-            <Entry Placeholder="Storage" x:Name="Storage"/>
-            <Button Text="Next" Clicked="Button_Clicked"/>
-            <Button Text="Back" Clicked="BackButton_Clicked"/>
-        </StackLayout>
-    </Frame>
+    <ScrollView>
+        <Frame Visual="Material" VerticalOptions="Center" Margin="10">
+            <StackLayout >
+                <Label Text="Brand And Name :"/>
+                <Entry Placeholder="Graphic Card" x:Name="Graphics"/>
+                <Picker x:Name="OS" FontFamily="{x:StaticResource Key=Brands}" Title="Operating System">
+                    <Picker.Items>
+                        <x:String>Apple</x:String>
+                        <x:String>Windows</x:String>
+                        <x:String>Linux</x:String>
+                        <x:String>Chrome</x:String>
+                    </Picker.Items>
+                </Picker>
+                <StackLayout Orientation="Horizontal">
+                    <Entry HorizontalOptions="FillAndExpand" Placeholder="RAM" BindingContext="{x:Reference RAM}" Keyboard="Numeric" Text="{Binding Value,Mode=TwoWay}"/>
+                    <Label VerticalOptions="Center" TextColor="Black" Text="GB"/>
+                    <Stepper x:Name="RAM" Value="1" Minimum="1" Maximum="256" Increment="1" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Entry Placeholder="Storage" x:Name="Storage" HorizontalOptions="FillAndExpand"/>
+                    <Label VerticalOptions="Center" TextColor="Black" Text="GB"/>
+                </StackLayout>
+                <Entry Placeholder="Screen" x:Name="Screen" HorizontalOptions="FillAndExpand"/>
+                <Button Text="Next" Clicked="Button_Clicked"/>
+                <Button Text="Back" Clicked="BackButton_Clicked"/>
+            </StackLayout>
+        </Frame>
+    </ScrollView>
 </pages:PopupPage>

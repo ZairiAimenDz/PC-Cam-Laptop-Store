@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-                  mc:Ignorable="d" Visual="Material" CloseWhenBackgroundIsClicked="False"
-             x:Class="PCcamAdmin.Popup.Step1">
+                  mc:Ignorable="d" Visual="Material"
+             x:Class="PCcamAdmin.Popup.Step5">
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation 
             PositionIn="Right"
@@ -17,17 +17,15 @@
             EasingOut="SinIn"
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
-    <ScrollView>
-        <Frame Visual="Material" VerticalOptions="Center" Margin="10">
-            <StackLayout >
-                <Label Text="Brand And Name :"/>
-                <Entry Placeholder="Brand" x:Name="Brand"/>
-                <Entry Placeholder="Name" x:Name="Name"/>
-                <Entry Placeholder="Price" x:Name="Price" Keyboard="Numeric"/>
-                <Button Text="Next" Clicked="NextButton_Clicked"/>
-                <Button Text="Exit" Clicked="ExitButton_Clicked"/>
-                
+    <Frame Visual="Material" VerticalOptions="Center" Margin="10">
+        <StackLayout >
+            <Label Text="The Adding Process Has Finished" HorizontalOptions="Center" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center"/>
+            <Label HorizontalOptions="Center" Text="&#xf058;" FontSize="Title" TextColor="Green" FontFamily="{x:StaticResource Key=Solid}"/>
+            <Label Text="Do You Want To See A Preview of The Item ?" HorizontalTextAlignment="Center"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Yes" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand"/>
+                <Button Text="No" Clicked="Button_Clicked_1" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-        </Frame>
-    </ScrollView>
+        </StackLayout>
+    </Frame>
 </pages:PopupPage>

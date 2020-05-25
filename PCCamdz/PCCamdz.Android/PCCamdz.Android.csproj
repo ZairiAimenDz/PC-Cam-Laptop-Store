@@ -61,6 +61,9 @@
     <PackageReference Include="FirebaseDatabase.net">
       <Version>4.0.4</Version>
     </PackageReference>
+    <PackageReference Include="FirebaseStorage.net">
+      <Version>1.0.3</Version>
+    </PackageReference>
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>2.0.0.2</Version>
     </PackageReference>

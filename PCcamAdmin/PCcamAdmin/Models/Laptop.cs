@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Text;
 
 namespace PCcamAdmin.Models
@@ -8,7 +9,24 @@ namespace PCcamAdmin.Models
     {
         public string Brand { get; set; }
         public string Name { get; set; }
+        public string price { get; set; }
         public Processor proc { get; set; }
+        public string graphics { get; set; }
+        public string Os { get; set; }
+        public int RAM { get; set; }
+        public string storage { get; set; }
+        public string screen { get; set; }
+        public int mainimg { get; set; }
+        public List<Imgs> imgs { get; set; }
+    }
+    /*#
+        Add When User Wants Click Save
+     */
+    public class Imgs
+    {
+        public string folder { get; set; }
+        public string imgname { get; set; }
+        public string imgurl { get; set; }
     }
 
     public class Processor
