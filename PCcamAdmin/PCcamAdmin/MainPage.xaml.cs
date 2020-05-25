@@ -18,25 +18,7 @@ namespace PCcamAdmin
         public MainPage()
         {
             InitializeComponent();
-            var itm1 = new Xamarin.Forms.ShellItem
-            {
-                Icon = "home.png",
-                Title = "Home",
-                Items =
-                {
-                    new ShellSection(){
-                        Items =
-                        {
-                            new ShellContent()
-                            {
-                                Content = new Home()
-                            }
-                        }
-                    }
-                }
-            };
-
-            this.Items.Add(itm1);
+            
         }
     }
 }

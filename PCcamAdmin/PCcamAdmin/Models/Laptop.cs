@@ -26,6 +26,11 @@ namespace PCcamAdmin.Models
         public string mainimg { get; set; }
 
         public List<Imgs> imgs { get; set; }
+
+        public override string ToString()
+        {
+            return Brand + "  " + Name;
+        }
     }
     /*#
         Add When User Wants Click Save

@@ -2,9 +2,9 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" NavigationPage.HasNavigationBar="False"
-             x:Class="PCcamAdmin.MainPage">
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:views="clr-namespace:PCcamAdmin.Views"
+       mc:Ignorable="d" NavigationPage.HasNavigationBar="False" Shell.TabBarIsVisible="False" 
+            x:Class="PCcamAdmin.MainPage">
 
     <Shell.FlyoutHeader>
         <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
@@ -22,5 +22,13 @@
             </Grid>
         </ContentView>
     </Shell.FlyoutHeader>
+    <Shell.FlyoutBackgroundColor>#333</Shell.FlyoutBackgroundColor>
+    
+    <FlyoutItem Title="Home"
+                Icon="home.png">
+        <ShellContent>
+            <views:Home />
+        </ShellContent>
+    </FlyoutItem>
 
 </Shell>
