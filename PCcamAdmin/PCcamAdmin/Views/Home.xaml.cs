@@ -3,6 +3,7 @@ using Firebase.Database.Query;
 using PCcamAdmin.Data;
 using PCcamAdmin.Models;
 using PCcamAdmin.Popup;
+using Rg.Plugins.Popup.Events;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -74,9 +75,10 @@ namespace PCcamAdmin.Views
             LaptopsList.IsRefreshing = false;
         }
 
-        private void LaptopsList_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void LaptopsList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var item = e.Item as Laptop;
+            await PopupNavigation.Instance.PushAsync(new Step1Details(item));
         }
     }
 

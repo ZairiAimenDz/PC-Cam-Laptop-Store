@@ -30,6 +30,9 @@
     <Compile Update="Popup\Step3.xaml.cs">
       <DependentUpon>Step3.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ItemDetails\Step1.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
