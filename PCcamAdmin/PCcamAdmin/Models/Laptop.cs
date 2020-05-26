@@ -13,6 +13,7 @@ namespace PCcamAdmin.Models
             date = new DateTime();
         }
 
+        public bool issold { get; set; }
         public string Brand { get; set; }
         public string Name { get; set; }
         public string price { get; set; }
