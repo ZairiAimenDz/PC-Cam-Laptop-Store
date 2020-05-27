@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:views="clr-namespace:PCCamdz.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Data="clr-namespace:PCCamdz.Data"
+       mc:Ignorable="d" Shell.BackgroundColor="#222" Shell.ForegroundColor="White" Shell.TabBarTitleColor="White" Shell.TabBarForegroundColor="White"
+       Shell.TabBarUnselectedColor="#555" Shell.UnselectedColor="#777"
+               FlyoutHeaderBehavior="CollapseOnScroll"
+             x:Class="PCCamdz.Home">
+    <Shell.FlyoutHeader>
+        <Data:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Laptops"
+                FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+                      Title="Home"
+                      Icon="home.png"
+                      ContentTemplate="{DataTemplate views:Home}" />
+        <ShellContent 
+                      Title="All Laptops"
+                      Icon="alllist.png"
+                      ContentTemplate="{DataTemplate views:AllLaptops}" />
+        <ShellContent
+                      Title="About"
+                      Icon="about.png"
+                      ContentTemplate="{DataTemplate views:About}" />
+    </FlyoutItem>
+</Shell>

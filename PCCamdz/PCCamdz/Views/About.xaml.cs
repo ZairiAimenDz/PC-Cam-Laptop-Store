@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace PCCamdz.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Home : ContentPage
+    public partial class About : ContentPage
     {
-        public Home()
+        public About()
         {
             InitializeComponent();
         }

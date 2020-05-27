@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PCCamdz.Views
+namespace PCCamdz.Data
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Home : ContentPage
+    public partial class FlyoutHeader : ContentView
     {
-        public Home()
+        public FlyoutHeader()
         {
             InitializeComponent();
         }
