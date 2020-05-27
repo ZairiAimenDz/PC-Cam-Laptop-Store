@@ -39,7 +39,7 @@ namespace PCCamdz.Data
             }
         }
 
-        protected override async void OnItemSelected(object item)
+        protected override void OnItemSelected(object item)
         {
             base.OnItemSelected(item);
 

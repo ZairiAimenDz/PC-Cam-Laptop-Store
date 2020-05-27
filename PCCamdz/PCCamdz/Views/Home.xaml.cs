@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace PCCamdz.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Home : ContentPage
+    public partial class Home : TabbedPage
     {
         public Home()
         {

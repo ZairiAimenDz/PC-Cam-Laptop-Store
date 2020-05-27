@@ -13,14 +13,11 @@
   <ItemGroup>
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
     <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+    <PackageReference Include="LiteDB" Version="5.0.8" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.2" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.6.0.800" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Popup\" />
   </ItemGroup>
 
   <ItemGroup>
