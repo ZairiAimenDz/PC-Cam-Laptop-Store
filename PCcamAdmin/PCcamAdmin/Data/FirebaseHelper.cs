@@ -1,6 +1,7 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
 using Firebase.Storage;
+using Newtonsoft.Json.Converters;
 using PCcamAdmin.Models;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace PCcamAdmin.Data
     public class FirebaseHelper
     {
         readonly FirebaseClient firebase = new FirebaseClient("https://pccamdz.firebaseio.com/");
-        //FirebaseStorage firebaseStorage = new FirebaseStorage("gs://pccamdz.appspot.com/");
+        FirebaseStorage firebaseStorage = new FirebaseStorage("pccamdz.appspot.com");
 
         public async Task<List<Laptop>> Get_Items()
         {
@@ -40,6 +41,35 @@ namespace PCcamAdmin.Data
         {
             await firebase
               .Child("Laptops").PostAsync(laptop);
+        }
+        public async Task UpdateState(DateTime date, string newprice,bool issold)
+        {
+            var toUpdatePerson = (await firebase
+              .Child("Laptops")
+              .OnceAsync<Laptop>()).Where(a => a.Object.date == date).FirstOrDefault();
+            toUpdatePerson.Object.price = newprice;
+            toUpdatePerson.Object.issold = issold;
+            var newobj = toUpdatePerson.Object;
+            await firebase
+              .Child("Laptops")
+              .Child(toUpdatePerson.Key)
+              .PutAsync(newobj);
+
+        }
+        public async Task DeleteLaptop(DateTime date)
+        {
+            var toDeletePerson = (await firebase
+              .Child("Laptops")
+              .OnceAsync<Laptop>()).Where(a => a.Object.date == date).FirstOrDefault();
+            foreach(var img in toDeletePerson.Object.imgs)
+            {
+                await firebaseStorage
+                .Child(img.folder)
+                .Child(img.imgname)
+                .DeleteAsync();
+            }
+            await firebase.Child("Laptops").Child(toDeletePerson.Key).DeleteAsync();
+
         }
     }
 }

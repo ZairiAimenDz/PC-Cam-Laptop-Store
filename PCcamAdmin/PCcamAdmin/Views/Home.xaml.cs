@@ -66,7 +66,8 @@ namespace PCcamAdmin.Views
             try
             {
                 var all = await Helper.Get_Items();
-                LaptopsList.ItemsSource =new ObservableCollection<Laptop>(all);
+                all.Reverse();
+                LaptopsList.ItemsSource = new ObservableCollection<Laptop>(all);
             }
             catch
             {

@@ -1,8 +1,7 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
-using PCcamAdmin.Models;
-using PCcamAdmin.Popup;
-using PCcamAdmin.Views;
+using PCCamdz.Models;
+using PCCamdz.Views;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
-namespace PCcamAdmin.Data
+namespace PCCamdz.Data
 {
     class ItemSearch : SearchHandler
     {
@@ -43,7 +42,8 @@ namespace PCcamAdmin.Data
         protected override async void OnItemSelected(object item)
         {
             base.OnItemSelected(item);
-            await PopupNavigation.Instance.PushAsync(new Step1Details(item as Laptop));
+
+            /// if Searched Item Is clicked
         }
     }
 }

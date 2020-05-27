@@ -21,10 +21,10 @@
         <StackLayout >
             <Button Text="Upload Photos" Clicked="Button_Clicked_1"/>
             <ActivityIndicator x:Name="activity" IsRunning="False" IsVisible="False"/>
-            <StackLayout Orientation="Horizontal">
+            <ScrollView Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal" x:Name="Photos">
                 </StackLayout>
-            </StackLayout>
+            </ScrollView>
             <Button Text="Finish And Post" Clicked="Button_Clicked"/>
         </StackLayout>
     </Frame>

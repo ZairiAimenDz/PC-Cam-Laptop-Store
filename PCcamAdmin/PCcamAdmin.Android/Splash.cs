@@ -19,6 +19,10 @@ namespace PCcamAdmin.Droid
         {
             base.OnCreate(savedInstanceState);
 
+
+            Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
+            Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
+            Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
             // Create your application here
         }
         protected override void OnResume()

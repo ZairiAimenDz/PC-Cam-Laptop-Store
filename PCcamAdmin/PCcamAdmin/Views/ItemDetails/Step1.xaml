@@ -17,13 +17,49 @@
             EasingOut="SinIn"
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
-    <Frame VerticalOptions="Center" HeightRequest="256">
-        <CarouselView x:Name="Photos" VerticalOptions="Center">
-            <CarouselView.ItemTemplate>
-                <DataTemplate>
-                    <Image  VerticalOptions="Center" Source="{Binding imgurl}"></Image>
-                </DataTemplate>
-            </CarouselView.ItemTemplate>
-        </CarouselView>
+    <Frame VerticalOptions="Center" Margin="0" Padding="0">
+        
+        <StackLayout Padding="0" Margin="0" HorizontalOptions="Center"> 
+            <StackLayout Orientation="Horizontal" Padding="10" VerticalOptions="Start">
+                <Button Text="&#xf0a8;" HorizontalOptions="StartAndExpand" Clicked="BackButton_Clicked" WidthRequest="80" CornerRadius="15" FontFamily="{x:StaticResource Key=Solid}"/>
+                <Button Text="&#xf3d1;" WidthRequest="80" CornerRadius="15" FontFamily="{x:StaticResource Key=Solid}" Clicked="Button_Clicked"/>
+            </StackLayout>
+            <CarouselView x:Name="Photos" VerticalOptions="Start" PeekAreaInsets="32" Margin="0" HeightRequest="300">
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
+                           ItemSpacing="5" />
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Margin="0" VerticalOptions="Center" Source="{Binding imgurl}"></Image>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <ScrollView Orientation="Horizontal" Margin="10">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Margin="0,0,20,0">
+                        <Label Text="{Binding Brand}" FontAttributes="Bold"/>
+                        <Label Text="{Binding Name}" FontSize="Large" TextColor="Black"/>
+                        <Label Text="{Binding Os}" FontFamily="{x:StaticResource Key=Brands}"/>
+                        <Label Text="{Binding price ,StringFormat='Price : {0}'}"/>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,20,0">
+                        <StackLayout BindingContext="{Binding proc}">
+                            <Label IsEnabled="False" TextColor="Black" Text="{Binding name,StringFormat='Name : {0}'}"/>
+                            <Label IsEnabled="False" TextColor="Black" Text="{Binding cores,StringFormat='Cores : {0}'}"/>
+                            <Label IsEnabled="False" TextColor="Black" Text="{Binding threads,StringFormat='Threads : {0}'}"/>
+                            <Label IsEnabled="False" TextColor="Black" Text="{Binding clockspeed,StringFormat='Speed : {0}'}"/>
+                            <Label IsEnabled="False" TextColor="Black" Text="{Binding cache,StringFormat='Cache : {0}'}"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,20,0">
+                        <Label IsEnabled="False" TextColor="Black" Text="{Binding graphics,StringFormat='Graphics : {0}'}"/>
+                        <Label IsEnabled="False" TextColor="Black" Text="{Binding RAM,StringFormat='RAM : {0}'}"/>
+                        <Label IsEnabled="False" TextColor="Black" Text="{Binding storage,StringFormat='Storage : {0}'}"/>
+                        <Label IsEnabled="False" TextColor="Black" Text="{Binding screen,StringFormat='Screen : {0}'}"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
     </Frame>
 </pages:PopupPage>

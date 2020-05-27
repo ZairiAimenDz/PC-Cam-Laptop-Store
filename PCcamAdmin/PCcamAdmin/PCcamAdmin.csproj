@@ -30,12 +30,12 @@
     <Compile Update="Popup\Step3.xaml.cs">
       <DependentUpon>Step3.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ItemDetails\Step1.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Popup\ChangeState.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Popup\Step1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

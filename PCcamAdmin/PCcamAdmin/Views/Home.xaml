@@ -13,16 +13,16 @@
     </ContentPage.Resources>
 
     <StackLayout>
-        <ListView ItemTapped="LaptopsList_ItemTapped" CachingStrategy="RecycleElementAndDataTemplate" Margin="0" x:Name="LaptopsList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" SeparatorVisibility="None" HasUnevenRows="True" SelectionMode="None" Refreshing="LaptopsList_Refreshing" IsPullToRefreshEnabled="True" >
+        <ListView ItemTapped="LaptopsList_ItemTapped" CachingStrategy="RecycleElementAndDataTemplate" Margin="0,0,0,-80" x:Name="LaptopsList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" SeparatorVisibility="None" HasUnevenRows="True" SelectionMode="None" Refreshing="LaptopsList_Refreshing" IsPullToRefreshEnabled="True" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Margin="0,10">
-                            <Frame CornerRadius="7" HorizontalOptions="FillAndExpand" BackgroundColor="#222" Margin="-40,10,-40,10" Padding="40,30,0,30" HasShadow="True" >
-                                    <StackLayout Padding="30,0,0,0" VerticalOptions="Center" >
+                                <Frame CornerRadius="7" HorizontalOptions="FillAndExpand" BackgroundColor="#222" Margin="-40,10,-40,10" Padding="40,30,0,30" HasShadow="True" >
+                                    <StackLayout Padding="30,0,30,0" VerticalOptions="Center" >
                                         <Label Text="{Binding Brand}" FontAttributes="Bold" TextColor="LightBlue"/>
                                         <Label Text="{Binding Name}" FontSize="Large" TextColor="White"/>
-                                        <Label Text="{Binding price,StringFormat='Price : {0}'}" TextColor="AliceBlue"/>
+                                    <Label Text="{Binding price,StringFormat='Price : {0}'}" TextColor="AliceBlue" IsVisible="{Binding issold,Converter={StaticResource inverter}}"/>
                                     </StackLayout>
                                 </Frame>
                                 <Frame Margin="10" BorderColor="Black" CornerRadius="64" Padding="0"
@@ -36,6 +36,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="&#xf067;" Margin="20" FontSize="32" CornerRadius="40" FontFamily="{x:StaticResource Solid}" Clicked="Button_Clicked"/>
+            <Button Text="&#xf067;" BackgroundColor="#111" Margin="20" FontSize="32" CornerRadius="40" FontFamily="{x:StaticResource Solid}" Clicked="Button_Clicked"/>
     </StackLayout>
 </ContentPage>
