@@ -31,7 +31,8 @@ namespace PCCamdz.Data
                   proc = item.Object.proc,
                   RAM = item.Object.RAM,
                   screen = item.Object.screen,
-                  storage = item.Object.storage
+                  storage = item.Object.storage,
+                  issold = item.Object.issold
               }).ToList();
 
         }

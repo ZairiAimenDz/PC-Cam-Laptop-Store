@@ -1,6 +1,8 @@
 ﻿using PCCamdz.Data;
+using PCCamdz.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +15,11 @@ namespace PCCamdz.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AllLaptops : ContentPage
     {
+        private FirebaseHelper Helper = new FirebaseHelper();
         public AllLaptops()
         {
             InitializeComponent();
+            LaptopsList_Refreshing(null, null);
             var search = new ItemSearch()
             {
                 Placeholder = "Search For Laptop ... ",
@@ -42,6 +46,28 @@ namespace PCCamdz.Views
                 })
             };
             Shell.SetSearchHandler(this, search);
+        }
+
+        private async void LaptopsList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var laptop = e.Item as Laptop;
+            await Shell.Current.Navigation.PushAsync(new DetailsPage(laptop));
+        }
+
+        private async void LaptopsList_Refreshing(object sender, EventArgs e)
+        {
+            LaptopsList.IsRefreshing = true;
+            try
+            {
+                var all = await Helper.Get_Items();
+                all.Reverse();
+                LaptopsList.ItemsSource = new ObservableCollection<Laptop>(all);
+            }
+            catch
+            {
+                await DisplayAlert("Error", "Check Your Internet Connection", "ok");
+            }
+            LaptopsList.IsRefreshing = false;
         }
     }
 }

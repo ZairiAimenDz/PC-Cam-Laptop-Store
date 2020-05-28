@@ -16,10 +16,12 @@ namespace PCCamdz.Views
     {
 
         private FirebaseHelper helper = new FirebaseHelper();
+        private Elements element = new Elements();
 
         public Home()
         {
             InitializeComponent();
+            RefreshView_Refreshing(null, null);
             var search = new ItemSearch()
             {
                 Placeholder = "Search For Laptop ... ",
@@ -47,5 +49,69 @@ namespace PCCamdz.Views
             };
             Shell.SetSearchHandler(this, search);
         }
+
+        private async void RefreshView_Refreshing(object sender, EventArgs e)
+        {
+            var laps= await helper.Get_Items();
+            laps.Reverse();
+            element.LastOne = laps.First();
+            element.Under6 = laps.Where(l =>
+            {
+                return double.Parse(l.price) < 60000;
+            }).FirstOrDefault();
+            element.WithI7 = laps.Where(l =>
+            {
+                return l.proc.name.ToLower().Contains("i7");
+            }).FirstOrDefault();
+            Create_Element(LastOne,element.LastOne);
+            Create_Element(Under6, element.Under6);
+            Create_Element(Withi7, element.WithI7);
+            if (sender != null)
+            {
+                ((RefreshView)sender).IsRefreshing = false;
+            }
+        }
+
+        private void Create_Element(Frame frame,Laptop lp)
+        {
+            if (lp == null) return;
+            var btn = new Button()
+            {
+                Text="See More",
+                CornerRadius = 15,
+            };
+            
+            frame.Content = new StackLayout()
+            {
+                Orientation = StackOrientation.Horizontal,
+                HeightRequest = 120,
+                Children ={
+                    new Image {Source = lp.mainimg},
+                    new StackLayout()
+                    {
+                        HorizontalOptions = LayoutOptions.StartAndExpand,
+                        VerticalOptions = LayoutOptions.CenterAndExpand,
+                        Children =
+                        {
+                            new Label(){Text = lp.Brand,FontAttributes=FontAttributes.Bold,FontSize=14},
+                            new Label(){Text = lp.Name, FontSize=18,TextColor = Color.Black},
+                            btn
+                        }
+                    }
+                }
+            };
+            btn.Clicked += async (sender, args) =>
+            {
+                await Shell.Current.Navigation.PushAsync(new DetailsPage(lp));
+            };
+        }
+
+       
+    }
+    public class Elements
+    {
+        public Laptop LastOne { get; set; }
+        public Laptop Under6 { get; set; }
+        public Laptop WithI7 { get; set; }
     }
 }

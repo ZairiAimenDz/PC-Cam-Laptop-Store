@@ -20,7 +20,7 @@
     <ScrollView>
         <Frame Visual="Material" VerticalOptions="Center" Margin="10">
             <StackLayout >
-                <Label Text="Brand And Name :"/>
+                <Label Text="Extra Details :"/>
                 <Entry Placeholder="Graphic Card" x:Name="Graphics"/>
                 <Picker x:Name="OS" FontFamily="{x:StaticResource Key=Brands}" Title="Operating System">
                     <Picker.Items>

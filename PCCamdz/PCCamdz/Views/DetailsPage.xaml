@@ -3,24 +3,83 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" Padding="0" Title="{Binding Name}"
+             mc:Ignorable="d" Padding="0" Title="{Binding Name}" Visual="Material"
              x:Class="PCCamdz.Views.DetailsPage">
-    <StackLayout>
-        <CarouselView ItemsSource="{Binding imgs}" VerticalOptions="Start" HeightRequest="300" Margin="0"
+    <ScrollView Orientation="Vertical" Margin="0">
+        <StackLayout>
+            <CarouselView ItemsSource="{Binding imgs}" VerticalOptions="Start" HeightRequest="300" Margin="0"
                       PeekAreaInsets="5" IndicatorView="indicatorView">
-            <CarouselView.ItemsLayout>
-                <LinearItemsLayout Orientation="Horizontal"
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
                            ItemSpacing="10" />
-            </CarouselView.ItemsLayout>
-            <CarouselView.ItemTemplate>
-                <DataTemplate>
-                    <Image Margin="0" Source="{Binding imgurl}" HeightRequest="300"/>
-                </DataTemplate>
-            </CarouselView.ItemTemplate>
-        </CarouselView>
-        <IndicatorView x:Name="indicatorView"
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Margin="0" Source="{Binding imgurl}" HeightRequest="300"/>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="indicatorView"
                    IndicatorColor="LightGray"
                    SelectedIndicatorColor="Green"
                    HorizontalOptions="Center" />
-    </StackLayout>
+            <BoxView Color="#ddd" HeightRequest="10"/>
+            <StackLayout Padding="20">
+                <Frame Margin="0" BackgroundColor="Red" IsVisible="{Binding issold}" HorizontalOptions="Start"  Padding="10,5,10,5" CornerRadius="15">
+                    <Label Text="Is Sold" TextColor="White"/>
+                </Frame>
+                <Label Text="{Binding Brand}" FontSize="16" FontAttributes="Bold" Margin="0"/>
+                <Label Text="{Binding Name}" FontSize="26" TextColor="Black" Margin="0,-10,0,0" FontAttributes="Bold"/>
+                <Label Text="{Binding price,StringFormat='{0} DA'}" FontSize="20"/>
+            </StackLayout>
+            <BoxView Color="#ddd" HeightRequest="10"/>
+            <Button Text="Want To Buy it ?" Margin="0" CornerRadius="0" Padding="0"/>
+            <BoxView Color="#ddd" HeightRequest="10"/>
+            <StackLayout Padding="20">
+                <Label Margin="0" Text="Laptop Details :" FontSize="20" FontAttributes="Bold" TextColor="Black"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" FontSize="16" VerticalTextAlignment="Center" FontFamily="{x:StaticResource Key=Solid}" Grid.Row="1" Text="&#xf538;"/>
+                    <Label Grid.Column="0" FontSize="16" VerticalTextAlignment="Center" FontFamily="{x:StaticResource Key=Solid}" Grid.Row="2" Text="&#xf0a0;"/>
+                    <Label Grid.Column="0" FontSize="16" VerticalTextAlignment="Center" FontFamily="{x:StaticResource Key=Solid}" Grid.Row="3" Text="&#xf108;"/>
+                    <Label Grid.Column="0" FontSize="16" VerticalTextAlignment="Center" FontFamily="{x:StaticResource Key=Solid}" Grid.Row="5" Text="&#xf11b;"/>
+                    <Label Grid.Column="0" FontSize="16" VerticalTextAlignment="Center" FontFamily="{x:StaticResource Key=Solid}" Grid.Row="7" Text="&#xf2db;"/>
+                    <Label Grid.Column="0" FontSize="16" VerticalTextAlignment="Center" FontFamily="{x:StaticResource Key=Solid}" Grid.Row="8" Text="&#xf2db;"/>
+                    <Label Grid.Column="0" FontSize="16" VerticalTextAlignment="Center" FontFamily="{x:StaticResource Key=Solid}" Grid.Row="9" Text="&#xf2db;"/>
+                    <Label Grid.Column="0" FontSize="16" VerticalTextAlignment="Center" FontFamily="{x:StaticResource Key=Solid}" Grid.Row="10" Text="&#xf2db;"/>
+                    <Label Grid.Column="0" FontSize="16" VerticalTextAlignment="Center" FontFamily="{x:StaticResource Key=Solid}" Grid.Row="11" Text="&#xf2db;"/>
+
+                    
+                    <Label Grid.Column="1" FontSize="16" VerticalTextAlignment="Center" Grid.Row="0" Text="Operating System :"/>
+                    <Label Grid.Column="1" FontSize="16" VerticalTextAlignment="Center" Grid.Row="1" Text="RAM :"/>
+                    <Label Grid.Column="1" FontSize="16" VerticalTextAlignment="Center" Grid.Row="2" Text="Storage :"/>
+                    <Label Grid.Column="1" FontSize="16" VerticalTextAlignment="Center" Grid.Row="3" Text="Screen :"/>
+                    <Label Grid.Column="1" FontSize="16" VerticalTextAlignment="Center" Grid.Row="5" Text="Graphics :"/>
+                    <Label Grid.Column="1" FontSize="16" VerticalTextAlignment="Center" Grid.Row="7" Text="Processor Name :"/>
+                    <Label Grid.Column="1" FontSize="16" VerticalTextAlignment="Center" Grid.Row="8" Text="Number of Cores :"/>
+                    <Label Grid.Column="1" FontSize="16" VerticalTextAlignment="Center" Grid.Row="9" Text="Number of Threads :"/>
+                    <Label Grid.Column="1" FontSize="16" VerticalTextAlignment="Center" Grid.Row="10" Text="Clockspeed :"/>
+                    <Label Grid.Column="1" FontSize="16" VerticalTextAlignment="Center" Grid.Row="11" Text="Cache :"/>
+                         
+                    
+                    <Label Grid.Column="2" FontSize="16" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" Grid.Row="0" Text="{Binding Os}" FontFamily="{x:StaticResource Key=Brands}"/>
+                    <Label Grid.Column="2" FontSize="16" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" Grid.Row="1" Text="{Binding RAM , StringFormat='{0} GB'}"/>
+                    <Label Grid.Column="2" FontSize="16" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" Grid.Row="2" Text="{Binding storage}"/>
+                    <Label Grid.Column="2" FontSize="16" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" Grid.Row="3" Text="{Binding screen}"/>
+                    <Label Grid.Column="2" FontSize="16" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" Grid.Row="5" Text="{Binding graphics}"/>
+                    <Label Grid.Column="2" FontSize="16" VerticalTextAlignment="Center" FontAttributes="Bold" BindingContext="{Binding proc}" TextColor="Black" Grid.Row="7" Text="{Binding name}"/>
+                    <Label Grid.Column="2" FontSize="16" VerticalTextAlignment="Center" FontAttributes="Bold" BindingContext="{Binding proc}" TextColor="Black" Grid.Row="8" Text="{Binding cores,StringFormat='{0} Cores'}"/>
+                    <Label Grid.Column="2" FontSize="16" VerticalTextAlignment="Center" FontAttributes="Bold" BindingContext="{Binding proc}" TextColor="Black" Grid.Row="9" Text="{Binding threads}"/>
+                    <Label Grid.Column="2" FontSize="16" VerticalTextAlignment="Center" FontAttributes="Bold" BindingContext="{Binding proc}" TextColor="Black" Grid.Row="10" Text="{Binding clockspeed,StringFormat='{0} Ghz'}"/>
+                    <Label Grid.Column="2" FontSize="16" VerticalTextAlignment="Center" FontAttributes="Bold" BindingContext="{Binding proc}" TextColor="Black" Grid.Row="11" Text="{Binding cache}"/>
+                </Grid>
+            </StackLayout>
+            <BoxView Color="#ddd" HeightRequest="10"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -38,6 +38,7 @@
             <ScrollView Orientation="Horizontal" Margin="10">
                 <StackLayout Orientation="Horizontal">
                     <StackLayout Margin="0,0,20,0">
+                        <Label Text="Is Sold" IsVisible="{Binding issold}"/>
                         <Label Text="{Binding Brand}" FontAttributes="Bold"/>
                         <Label Text="{Binding Name}" FontSize="Large" TextColor="Black"/>
                         <Label Text="{Binding Os}" FontFamily="{x:StaticResource Key=Brands}"/>

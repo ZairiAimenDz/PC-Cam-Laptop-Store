@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" Visual="Material"
+             x:Class="PCcamAdmin.Views.About">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Label Text="Developed By Zairi Aimen"
+                HorizontalOptions="CenterAndExpand" FontSize="24" FontAttributes="Bold" TextColor="Black"/>
+            <Label Text="An Amateur Back-End Developer and Xamarin-Forms Mobile-App Developer"
+                   HorizontalTextAlignment="Center"/>
+            <BoxView HeightRequest="1" Color="Black" Margin="30"/>
+            <Label Text="Some Extra Features We Can Add To Your Applicaiton"
+                HorizontalTextAlignment="Center" />
+            <Frame Margin="50,0,50,0" BackgroundColor="PapayaWhip">
+                <StackLayout>
+                    <Label Text="- Saving Drafts"/>
+                    <Label Text="- Desktop Application"/>
+                    <Label Text="- Saving Items In User's App"/>
+                    <Label Text="- Login And Register Users"/>
+                    <Label Text="- Comments"/>
+                    <Label Text="- Store Rating By User's"/>
+                </StackLayout>
+            </Frame>
+            <Button Margin="40" Text="Contact - a.zairi@esi-sba.dz"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

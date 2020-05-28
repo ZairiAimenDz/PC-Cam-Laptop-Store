@@ -3,18 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" Visual="Material"
+             mc:Ignorable="d" Visual="Material" BackgroundColor="#444" Shell.BackgroundColor="#222" Shell.ForegroundColor="Aqua"
              x:Class="PCCamdz.Views.Home">
 
 
+    <RefreshView Refreshing="RefreshView_Refreshing">
+        <ScrollView Orientation="Vertical">
+            <StackLayout Padding="20" Margin="0">
+                <Label Text="Latest Added :" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+                 <Frame x:Name="LastOne" CornerRadius="15">
 
-    <ScrollView Padding="0" Margin="0">
-        <StackLayout Padding="0" Margin="0">
-            <CarouselView>
+                </Frame>
+                <Label Text="Under 60 000 DA :" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+                <Frame x:Name="Under6" CornerRadius="15">
 
-            </CarouselView>
-        </StackLayout>
-    </ScrollView>
+                </Frame>
+                <Label Text="Absolute Power With i7 :" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+                <Frame x:Name="Withi7" CornerRadius="15">
+
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </RefreshView>
 
 
 </ContentPage>
