@@ -13,7 +13,6 @@ namespace PCCamdz.Data
     public class FirebaseHelper
     {
         readonly FirebaseClient firebase = new FirebaseClient("https://pccamdz.firebaseio.com/");
-        //FirebaseStorage firebaseStorage = new FirebaseStorage("gs://pccamdz.appspot.com/");
 
         public async Task<List<Laptop>> Get_Items()
         {
@@ -35,11 +34,6 @@ namespace PCCamdz.Data
                   storage = item.Object.storage
               }).ToList();
 
-        }
-        public async Task AddLaptop(Laptop laptop)
-        {
-            await firebase
-              .Child("Laptops").PostAsync(laptop);
         }
     }
 }

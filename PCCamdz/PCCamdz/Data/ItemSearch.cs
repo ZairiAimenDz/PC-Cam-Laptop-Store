@@ -42,7 +42,7 @@ namespace PCCamdz.Data
         protected override void OnItemSelected(object item)
         {
             base.OnItemSelected(item);
-
+            Shell.Current.Navigation.PushAsync(new DetailsPage(item as Laptop));
             /// if Searched Item Is clicked
         }
     }

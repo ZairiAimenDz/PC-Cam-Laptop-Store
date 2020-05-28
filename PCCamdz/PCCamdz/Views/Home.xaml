@@ -3,13 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+             mc:Ignorable="d" Visual="Material"
              x:Class="PCCamdz.Views.Home">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Shell"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+
+
+    <ScrollView Padding="0" Margin="0">
+        <StackLayout Padding="0" Margin="0">
+            <CarouselView>
+
+            </CarouselView>
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
+
+
 </ContentPage>
