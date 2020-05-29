@@ -33,13 +33,21 @@ namespace PCcamAdmin.Popup
         private async void SaveButton_Clicked(object sender, EventArgs e)
         {
             await Helper.UpdateState(lp.date,Price.Text,issold.IsChecked);
+            await DisplayAlert("Item Updated","The Item Update Process Was A Success","ok");
         }
 
         private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
             var del = await DisplayAlert("Deletion is Permanent", "Are You Sure You Want To Delete This Item", "Yes","No");
+            try { 
             if (del) { 
-                await Helper.DeleteLaptop(lp.date);
+                    await Helper.DeleteLaptop(lp.date);
+                    await DisplayAlert("Sucess", "Item Deleted Successfully", "ok");
+                }
+            }
+            catch
+            {
+                await DisplayAlert("Error", "There Has Been An Error Check Your Internet Connection Again", "ok");
             }
         }
     }

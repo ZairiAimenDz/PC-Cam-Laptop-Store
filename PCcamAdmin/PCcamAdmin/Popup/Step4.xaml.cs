@@ -40,7 +40,7 @@ namespace PCcamAdmin.Popup
         {
             activity.IsRunning = true;
             activity.IsVisible = true;
-
+            try { 
             lp.imgs = new List<Imgs>();
             string childof = "lp" + lp.Brand.Trim() + lp.Name.Trim();
             foreach (var media in file)
@@ -60,11 +60,11 @@ namespace PCcamAdmin.Popup
 
                 await PopupNavigation.Instance.RemovePageAsync(this);
                 await PopupNavigation.Instance.PushAsync(new Step5(lp));
-            /*}
+            }
             catch
             {
                 await DisplayAlert("There Has Been An Error","Check Your Internet Connection","OK");
-            }*/
+            }
 
             activity.IsRunning = false;
             activity.IsVisible = false;

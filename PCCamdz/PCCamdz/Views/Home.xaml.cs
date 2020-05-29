@@ -52,6 +52,7 @@ namespace PCCamdz.Views
 
         private async void RefreshView_Refreshing(object sender, EventArgs e)
         {
+            try { 
             var laps= await helper.Get_Items();
             laps.Reverse();
             element.LastOne = laps.First();
@@ -69,6 +70,11 @@ namespace PCCamdz.Views
             if (sender != null)
             {
                 ((RefreshView)sender).IsRefreshing = false;
+                }
+            }
+            catch
+            {
+                await DisplayAlert("Internet Conection Error", "Check Your Internet Connection Again", "ok");
             }
         }
 
