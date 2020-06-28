@@ -12,7 +12,7 @@ namespace PCCamdz.Data
 {
     public class FirebaseHelper
     {
-        readonly FirebaseClient firebase = new FirebaseClient("https://pccamdz.firebaseio.com/");
+        readonly FirebaseClient firebase = new FirebaseClient("https://<Firebase Project Name?>.firebaseio.com/");
 
         public async Task<List<Laptop>> Get_Items()
         {

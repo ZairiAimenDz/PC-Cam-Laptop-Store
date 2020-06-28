@@ -13,8 +13,8 @@ namespace PCcamAdmin.Data
 {
     public class FirebaseHelper
     {
-        readonly FirebaseClient firebase = new FirebaseClient("https://pccamdz.firebaseio.com/");
-        FirebaseStorage firebaseStorage = new FirebaseStorage("pccamdz.appspot.com");
+        readonly FirebaseClient firebase = new FirebaseClient("https://<project Name>.firebaseio.com/");
+        FirebaseStorage firebaseStorage = new FirebaseStorage("<Project Name>.appspot.com");
 
         public async Task<List<Laptop>> Get_Items()
         {
